@@ -3,27 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقعي الأول</title>
+    <title>موقعي الأول | BHM</title>
+    <!-- ربط ملف التنسيق -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- شريط التنقل -->
+    <!-- شريط التنقل مع الشعار الملكي الذهبي -->
+    <nav class="navbar">
+    <div class="logo">
+        <!-- كتابة اسم الصورة الدقيق كما هو عندك -->
+        <img src="projet/bhm.png" alt="شعار BHM" class="royal-logo">
+        <span class="logo-text">BHM</span>
+    </div>
+    
+    <ul class="nav-links">
+        <li><a href="#about">من أنا</a></li>
+        <li><a href="#contact">تواصل معي</a></li>
+    </ul>
+
+    <button id="themeToggle" class="theme-btn">🌙 الوضع الداكن</button>
+</nav>
+    <!-- الترويسة الرئيسية مع خلفية النيون -->
     <header>
-        <h1>أهلاً بكم Welcome!</h1>
-        <p>هنا تجدون كل ماتريد.</p>
+        <h1>أهلاً بك Welcome!</h1>
+        <p>الموقع المتخصص في كل شيء.</p>
     </header>
 
-    <hr>
-
-    <main>
-        <section>
+    <!-- المحتوى الرئيسي -->
+    <main class="container">
+        <section id="about">
             <h2>من أنا؟</h2>
-            <p>أنا مطور وب إسمي BHM      <strong></strong> وكيفية ترتيب عناصر الصفحة.</p>
+            <p>أنا مطور BHM.</p>
         </section>
-
-        <section>
+<!-- قسم المشاريع -->
+        <section id="projects">
+            <h2>مشاريعي</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>تطبيق الويب المتوهج</h3>
+                    <p>واجهة مستخدم مستقبلية باستخدام HTML, CSS, و JavaScript.</p>
+                </div>
+                <div class="project-card">
+                    <h3>مشروع الهوية البصرية BHM</h3>
+                    <p>تصميم متكامل للعلامة التجارية والشعار الملكي.</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
             <h2>نموذج التواصل:</h2>
-            <form action="#" method="POST">
+            <form id="contactForm">
                 <label for="username">الاسم الكامل:</label><br>
                 <input type="text" id="username" name="username" placeholder="أدخل اسمك هنا" required>
                 <br><br>
@@ -34,14 +64,19 @@
 
                 <button type="submit">إرسال البيانات</button>
             </form>
+            <p id="welcomeMessage" class="success-message"></p>
         </section>
     </main>
 
-    <hr>
-
     <footer>
-        <p>جميع الحقوق محفوظة &copy; 2026</p>
+        <div class="social-links">
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <a href="https://twitter.com" target="_blank">X (Twitter)</a>
+        </div>
+        <p>جميع الحقوق محفوظة &copy; 2026 | BHM</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
