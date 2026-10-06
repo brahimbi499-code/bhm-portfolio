@@ -51,6 +51,35 @@
                 </div>
             </div>
         </section>
+        <!-- قسم الأفلام والمشاهدة -->
+<section id="movies">
+    <h2>أفلامي المفضلة 🎬</h2>
+    <div class="movies-grid">
+        <div class="movie-card">
+            <div class="movie-badge">9.0/10</div>
+            <h3>Inception</h3>
+            <p>خيال علمي / إثارة - فيلمي المفضل في عالم الأحلام والذكاء.</p>
+        </div>
+        <div class="movie-card">
+            <div class="movie-badge">8.6/10</div>
+            <h3>Interstellar</h3>
+            <p>رحلة عبر الفضاء والفجوات الزمنية لاكتشاف مستقبل البشرية.</p>
+        </div>
+    </div>
+</section>
+<!-- قسم الألعاب -->
+        <section id="games">
+            <h2>منطقة الألعاب 🎮</h2>
+            <div class="game-box">
+                <h3>تحدي تخمين الرقم السرّي</h3>
+                <p>خمن رقماً بين 1 و 10 للترشح لقائمة الأبطال!</p>
+                <div class="game-controls">
+                    <input type="number" id="guessInput" min="1" max="10" placeholder="أدخل الرقم...">
+                    <button onclick="playGuessGame()" class="game-btn">تجربة حظك</button>
+                </div>
+                <p id="gameResult" class="game-result"></p>
+            </div>
+        </section>
         <section id="contact">
             <h2>نموذج التواصل:</h2>
             <form id="contactForm">
@@ -78,7 +107,7 @@
     </footer>
 
     <script data-goatcounter="https://bhm-portfolio.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+        async src="https://gc.zgo.at/count.js"></script>
 
 
     <script src="script.js"></script>
