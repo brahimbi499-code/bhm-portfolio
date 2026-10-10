@@ -1,395 +1,440 @@
-/* إعدادات عامة وتتمرير سلس */
-html {
-    scroll-behavior: smooth;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #7c3aed;
+    --secondary-color: #ec4899;
+    --dark-bg: #0f172a;
+    --card-bg: #1e293b;
+    --text-light: #e2e8f0;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #0d1117;
-    color: #ffffff;
-    transition: background-color 0.3s, color 0.3s;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    line-height: 1.6;
 }
 
-/* شريط التنقل Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #161b22;
-    padding: 12px 30px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.navbar .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.royal-logo {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
-}
-
-.logo-text {
-    font-size: 20px;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-.navbar .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar .nav-links a {
-    color: #c9d1d9;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s;
-}
-
-.navbar .nav-links a:hover {
-    color: #e040fb;
-}
-
-/* زر الوضع الداكن */
-.theme-btn {
-    background-color: #21262d;
-    color: #ffffff;
-    border: 1px solid #30363d;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-.theme-btn:hover {
-    background-color: #30363d;
-}
-
-/* الترويسة الأرجوانية المتوهجة (Neon Pulse) */
-header {
-    text-align: center;
-    padding: 70px 20px;
-    background: #090314;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 2px solid #e040fb;
-}
-
-header::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(224, 64, 251, 0.8) 0%, rgba(156, 39, 176, 0.4) 40%, transparent 70%);
-    filter: blur(50px);
-    border-radius: 50%;
-    z-index: 0;
-    animation: neonPulse 4s infinite alternate ease-in-out;
-}
-
-header h1, header p {
-    position: relative;
-    z-index: 1;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    color: #ffffff;
-    text-shadow: 0 0 10px #e040fb, 0 0 20px #e040fb;
-    margin-bottom: 10px;
-}
-
-@keyframes neonPulse {
-    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
-    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
-}
-
-/* الأقسام والنماذج */
 .container {
-    max-width: 800px;
-    margin: 30px auto;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 20px;
 }
 
-section {
-    background: #161b22;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    border: 1px solid #30363d;
+/* Navigation */
+.navbar {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, rgba(124, 58, 237, 0.1) 100%);
+    border-bottom: 2px solid var(--border-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-input[type="text"], input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #30363d;
-    background-color: #0d1117;
-    color: #ffffff;
-    box-sizing: border-box;
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-button[type="submit"] {
-    background-color: #238636;
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+.admin-link {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-light);
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
     color: white;
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 30px;
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
+    transition: all 0.3s;
 }
 
-button[type="submit"]:hover {
-    background-color: #2ea043;
+.btn-primary {
+    background: white;
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
-footer {
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: var(--secondary-color);
+}
+
+/* Featured Games */
+.featured-games {
+    padding: 80px 20px;
+    background: var(--dark-bg);
+}
+
+.featured-games h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
     text-align: center;
-    padding: 20px;
-    background-color: #161b22;
-    border-top: 1px solid #30363d;
+    color: var(--primary-color);
 }
 
-/* الوضع الفاتح Light Mode */
-body.light-mode {
-    background-color: #f6f8fa;
-    color: #24292f;
-}
-
-body.light-mode .navbar,
-body.light-mode section,
-body.light-mode footer {
-    background-color: #ffffff;
-    border-color: #d0d7de;
-}
-
-body.light-mode .navbar .nav-links a,
-body.light-mode .logo-text {
-    color: #24292f;
-}
-
-body.light-mode input[type="text"],
-body.light-mode input[type="email"] {
-    background-color: #ffffff;
-    color: #24292f;
-    border-color: #d0d7de;
-}.royal-icon {
-    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.9));
-    transition: transform 0.3s ease;
-}
-
-.royal-icon:hover {
-    transform: scale(1.15);
-}/* تنسيق الشعار وتفريغ خلفيته السوداء تلقائياً */
-.royal-logo {
-    height: 65px; /* تحديد الارتفاع المناسب للشعارين */
-    width: auto;
-    object-fit: contain;
-    mix-blend-mode: screen; 
-    
-    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.7));
-    transition: transform 0.3s ease;
-}
-
-.royal-logo:hover {
-    transform: scale(1.1);
-}/* شبكة المشاريع */
-.projects-grid {
+.games-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 15px;
+    gap: 2rem;
 }
 
-.project-card {
-    background-color: #0d1117;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #30363d;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+.game-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s;
+    cursor: pointer;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    border-color: #e040fb;
-    box-shadow: 0 0 15px rgba(224, 64, 251, 0.4);
+.game-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
 }
 
-.project-card h3 {
-    margin-top: 0;
-    color: #e040fb;
-}/* تنسيق روابط التواصل الاجتماعي */
-footer {
+.game-card-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.game-card-content {
+    padding: 1.5rem;
+}
+
+.game-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.game-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.game-card-rating {
+    margin: 1rem 0;
+    color: #fbbf24;
+}
+
+/* Community Section */
+.community-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+}
+
+.community-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
     text-align: center;
-    padding: 25px 20px;
-    background-color: #161b22;
-    border-top: 1px solid #30363d;
-    margin-top: 40px;
+}
+
+.community-section > p {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.community-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.feature-card p {
+    color: var(--text-muted);
+}
+
+/* Tournaments Section */
+.tournaments-section {
+    padding: 80px 20px;
+    background: var(--dark-bg);
+}
+
+.tournaments-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.tournaments-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.tournament-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s;
+}
+
+.tournament-card:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+}
+
+.tournament-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+
+.tournament-title {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.tournament-badge {
+    background: var(--secondary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.tournament-info {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.tournament-info-item {
+    flex: 1;
+    min-width: 100px;
+}
+
+.tournament-info-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.tournament-info-value {
+    color: var(--text-light);
+    font-weight: bold;
+}
+
+.tournament-btn {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #0f172a 0%, rgba(124, 58, 237, 0.05) 100%);
+    border-top: 2px solid var(--border-color);
+    padding: 3rem 20px 1rem;
+    color: var(--text-light);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
 }
 
 .social-links {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 15px;
+    gap: 1rem;
 }
 
-.social-links a {
-    color: #8b949e;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 5d;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.social-links a:hover {
-    color: #e040fb;
-    transform: translateY(-2px);
-}/* تنسيق قسم الأفلام */
-.movies-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.movie-card {
-    background: #161b22;
-    border: 1px solid #30363d;
-    padding: 20px;
-    border-radius: 12px;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.movie-card:hover {
-    border-color: #00e676;
-    box-shadow: 0 0 15px rgba(0, 230, 118, 0.3);
-    transform: translateY(-5px);
-}
-
-.movie-badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: #00e676;
-    color: #000;
-    font-weight: bold;
-    font-size: 12px;
-    padding: 3px 8px;
-    border-radius: 20px;
-}/* تنسيق لعبة التخمين */
-.game-box {
-    background: #161b22;
-    border: 1px solid #30363d;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-    margin-top: 15px;
-}
-
-.game-controls {
+.social-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 50%;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-top: 15px;
+    font-size: 0.9rem;
+    transition: background 0.3s;
 }
 
-.game-controls input {
-    width: 130px;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #30363d;
-    background: #0d1117;
-    color: #fff;
+.social-icon:hover {
+    background: var(--secondary-color);
+}
+
+.footer-bottom {
     text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
 }
 
-.game-btn {
-    background: #e040fb;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s, box-shadow 0.3s;
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.game-btn:hover {
-    background: #d500f9;
-    box-shadow: 0 0 10px rgba(224, 64, 251, 0.5);
-}
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
 
-.game-result {
-    margin-top: 15px;
-    font-weight: bold;
-    font-size: 1.1rem;
-}/* تنسيق مشغلات الأفلام والفيديو */
-.section-desc {
-    color: #8b949e;
-    margin-bottom: 20px;
-}
+    .hamburger {
+        display: flex;
+    }
 
-.movies-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
+    .hero-content h1 {
+        font-size: 2rem;
+    }
 
-.movie-player-card {
-    background: #161b22;
-    border: 1px solid #30363d;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
+    .hero-content p {
+        font-size: 1rem;
+    }
 
-.movie-player-card:hover {
-    transform: translateY(-5px);
-    border-color: #00e676;
-    box-shadow: 0 0 20px rgba(0, 230, 118, 0.3);
-}
-
-.movie-player-card h3 {
-    margin-top: 0;
-    margin-bottom: 12px;
-    color: #00e676;
-}
-
-/* لجعل مشغل الفيديو متجاوب مع جميع الشاشات */
-.video-responsive {
-    overflow: hidden;
-    padding-bottom: 56.25%; /* نسبة العرض إلى الارتفاع 16:9 */
-    position: relative;
-    height: 0;
-    border-radius: 8px;
-}
-
-.video-responsive iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    border: none;
+    .games-grid,
+    .community-features,
+    .tournaments-list {
+        grid-template-columns: 1fr;
+    }
 }

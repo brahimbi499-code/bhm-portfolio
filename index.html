@@ -1,134 +1,105 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقعي الأول | BHM</title>
-    <!-- ربط ملف التنسيق -->
-    <link rel="stylesheet" href="style.css">
+    <title>GameHub - Video Games & Community</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <!-- شريط التنقل -->
-    <!-- شريط التنقل مع الشعار الملكي الذهبي -->
+    <!-- Navigation -->
     <nav class="navbar">
-    <div class="logo">
-        <!-- كتابة اسم الصورة الدقيق كما هو عندك -->
-        <img src="./projet/bhm.png" alt="شعار BHM" class="royal-logo">
-        <span class="logo-text">BHM</span>
-    </div>
-    
-    <ul class="nav-links">
-        <li><a href="#about">من أنا</a></li>
-        <li><a href="#contact">تواصل معي</a></li>
-    </ul>
-
-    <button id="themeToggle" class="theme-btn">🌙 الوضع الداكن</button>
-</nav>
-    <!-- الترويسة الرئيسية مع خلفية النيون -->
-    <header>
-        <h1>أهلاً بك Welcome!</h1>
-        <p>الموقع المتخصص في كل شيء.</p>
-    </header>
-
-    <!-- المحتوى الرئيسي -->
-    <main class="container">
-        <section id="about">
-            <h2>من أنا؟</h2>
-            <p>أنا مطور BHM.</p>
-        </section>
-<!-- قسم المشاريع -->
-        <section id="projects">
-            <h2>مشاريعي</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>تطبيق الويب المتوهج</h3>
-                    <p>واجهة مستخدم مستقبلية باستخدام HTML, CSS, و JavaScript.</p>
-                </div>
-                <div class="project-card">
-                    <h3>مشروع الهوية البصرية BHM</h3>
-                    <p>تصميم متكامل للعلامة التجارية والشعار الملكي.</p>
-                </div>
+        <div class="nav-container">
+            <div class="nav-logo" id="navBrand">
+                🎮 GameHub
             </div>
-        </section>
-        <!-- قسم الأفلام والمشاهدة -->
-<!-- قسم الأفلام والمشاهدة الحية -->
-        <section id="movies">
-            <h2>سينما BHM 🎬</h2>
-            <p class="section-desc">شاهد العروض التشويقية والأفلام المختارة مباشرة:</p>
-            
-            <div class="movies-container">
-                <!-- الفيلم الأول -->
-                <div class="movie-player-card">
-                    <h3>Inception (2010)</h3>
-                    <div class="video-responsive">
-                        <!-- يمكنك استبدال رابط YouTube برابط التريلر الخاص بالفيلم -->
-                        <iframe src="https://shaheid4u.name/watch/%D9%81%D9%8A%D9%84%D9%85-inception-2010-%D9%85%D8%AA%D8%B1%D8%AC%D9%85-%D8%A7%D9%88%D9%86-%D9%84%D8%A7%D9%8A%D9%86" 
-                                title="Inception " 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-
-                <!-- الفيلم الثاني -->
-                <div class="movie-player-card">
-                    <h3>The mentalist</h3>
-                    <div class="video-responsive">
-                        <iframe src="https://shaheid4u.name/search?s=the+mentalist" 
-                                title="Interstellar Trailer" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#games" class="nav-link">Games</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+                <li><a href="#tournaments" class="nav-link">Tournaments</a></li>
+                <li><a href="dashboard.html" class="nav-link">Chat</a></li>
+                <li><a href="#" class="nav-link admin-link">Admin</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-        </section>
-<!-- قسم الألعاب -->
-        <section id="games">
-            <h2>منطقة الألعاب 🎮</h2>
-            <div class="game-box">
-                <h3>تحدي تخمين الرقم السرّي</h3>
-                <p>خمن رقماً بين 1 و 10 للترشح لقائمة الأبطال!</p>
-                <div class="game-controls">
-                    <input type="number" id="guessInput" min="1" max="10" placeholder="أدخل الرقم...">
-                    <button onclick="playGuessGame()" class="game-btn">تجربة حظك</button>
-                </div>
-                <p id="gameResult" class="game-result"></p>
-            </div>
-        </section>
-        <section id="contact">
-            <h2>نموذج التواصل:</h2>
-            <form id="contactForm">
-                <label for="username">الاسم الكامل:</label><br>
-                <input type="text" id="username" name="username" placeholder="أدخل اسمك هنا" required>
-                <br><br>
-
-                <label for="user-email">البريد الإلكتروني:</label><br>
-                <input type="email" id="user-email" name="email" placeholder="example@mail.com" required>
-                <br><br>
-
-                <button type="submit">إرسال البيانات</button>
-            </form>
-            <p id="welcomeMessage" class="success-message"></p>
-        </section>
-    </main>
-
-    <footer>
-        <div class="social-links">
-            <a href="https://github.com" target="_blank">GitHub</a>
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-            <a href="https://twitter.com" target="_blank">X (Twitter)</a>
         </div>
-        <p>جميع الحقوق محفوظة &copy; 2026 | BHM</p>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 id="heroTitle">Welcome to GameHub</h1>
+            <p id="heroSubtitle">Your Ultimate Gaming & Community Platform</p>
+            <button class="btn btn-primary" onclick="scrollToGames()">Explore Games</button>
+        </div>
+    </section>
+
+    <!-- Featured Games Section -->
+    <section class="featured-games" id="games">
+        <div class="container">
+            <h2 id="gamesTitle">Featured Games</h2>
+            <div class="games-grid" id="gamesGrid">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community-section" id="community">
+        <div class="container">
+            <h2 id="communityTitle">Join Our Community</h2>
+            <p id="communityDesc">Connect with millions of gamers worldwide</p>
+            <div class="community-features" id="communityFeatures">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournaments Section -->
+    <section class="tournaments-section" id="tournaments">
+        <div class="container">
+            <h2 id="tournamentsTitle">Active Tournaments</h2>
+            <div class="tournaments-list" id="tournamentsList">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 id="footerTitle">GameHub</h3>
+                    <p id="footerDesc">The ultimate gaming platform</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul id="footerLinks">
+                        <li><a href="#games">Games</a></li>
+                        <li><a href="#community">Community</a></li>
+                        <li><a href="#tournaments">Tournaments</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">Twitter</a>
+                        <a href="#" class="social-icon">Discord</a>
+                        <a href="#" class="social-icon">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p id="footerCopy">&copy; 2024 GameHub. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <script data-goatcounter="https://bhm-portfolio.goatcounter.com/count"
-        async src="https://gc.zgo.at/count.js"></script>
-
-
-    <script src="script.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
